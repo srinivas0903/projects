@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User Deatils</h1>
+    <div id="userdata"></div>
+    <script>
+    let userDataJson=localStorage.getItem("user");
+    let  userData=JSON.parse(userDataJson);
+    userdata.innerHTML=`name:${userData.name}<br>
+    Email:${userData.email}<br>
+    Password:${userData.password}`
+
+
+    </script>
+</body>
+</html>

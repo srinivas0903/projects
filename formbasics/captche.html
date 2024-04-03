@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Captcha Example</title>
+    <script>
+        // Array of images (in reality, you should have a variety of different images)
+        var images = [
+            "image.jpg", // Image URL
+            // Add more image URLs here
+        ];
+
+        // Function to display a random image from the images array
+        function displayRandomImage() {
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var imageUrl = images[randomIndex];
+            var captchaImage = document.getElementById("captcha-image");
+            captchaImage.src = imageUrl;
+        }
+
+        // Function to validate the captcha
+        function validateCaptcha() {
+            var userInput = document.getElementById("captcha-input").value;
+            var expectedValue = "some_value"; // Expected value for the captcha (in reality, you'd have a more secure mechanism)
+            if (userInput === expectedValue) {
+                alert("Captcha is correct!");
+            } else {
+                alert("Captcha is incorrect. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Basic Captcha Example</h2>
+    <p>Please check the box below and enter the code displayed in the image.</p>
+    <div>
+        <input type="checkbox" id="captcha-checkbox" onchange="displayRandomImage()">
+        <label for="captcha-checkbox">I am not a robot</label>
+    </div>
+    <div>
+        <img id="captcha-image" src="" alt="Captcha Image">
+    </div>
+    <div>
+        <input type="text" id="captcha-input" placeholder="Enter Captcha Code">
+        <button onclick="validateCaptcha()">Submit</button>
+    </div>
+</body>
+</html>
